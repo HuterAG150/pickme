@@ -26,6 +26,5 @@ def set_theme():
     response.set_cookie('theme', theme, max_age=365*24*60*60)  # Хранить 1 год
     return response
 
-
 if __name__ == '__main__':
     app.run(debug=True)
