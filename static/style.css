@@ -1,0 +1,96 @@
+/* Плавные переходы для всей страницы */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+.card {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Стили для превью тем */
+.theme-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #dee2e6;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .theme-preview {
+    border-color: #495057;
+}
+
+.theme-preview.light {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.theme-preview.dark {
+    background: linear-gradient(135deg, #343a40 0%, #212529 100%);
+}
+
+.theme-preview::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-check-input:checked + .form-check-label .theme-preview::after {
+    opacity: 1;
+}
+
+.form-check-input:checked + .form-check-label .theme-preview.light::after {
+    content: "☀️";
+    font-size: 16px;
+}
+
+.form-check-input:checked + .form-check-label .theme-preview.dark::after {
+    content: "🌙";
+    font-size: 16px;
+}
+
+.form-check-input:checked + .form-check-label .theme-preview {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Кастомные стили для темной темы Bootstrap */
+[data-bs-theme="dark"] {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .form-check-label {
+    color: #e9ecef;
+}
+
+[data-bs-theme="dark"] .border {
+    border-color: #495057 !important;
+}
+
+/* Анимации */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.card {
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
